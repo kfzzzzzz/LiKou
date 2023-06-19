@@ -15,6 +15,7 @@ struct ListNode
 class Solution
 {
 public:
+    // 剑指 Offer 25. 合并两个排序的链表
     ListNode *mergeTwoLists(ListNode *l1, ListNode *l2)
     {
         ListNode *prevHead = new ListNode(-1);
@@ -37,6 +38,7 @@ public:
         return prevHead->next;
     }
 
+    // 剑指 Offer 03. 数组中重复的数字
     int findRepeatNumber(vector<int> &nums)
     {
         unordered_map<int, bool> umap;
