@@ -2,6 +2,7 @@
 #include <vector>
 #include <iostream>
 #include <unordered_map>
+#include <stack>
 
 using namespace std;
 
@@ -49,6 +50,45 @@ public:
             umap[num] = true;
         };
         return -1;
+    }
+};
+
+// 剑指 Offer 09. 用两个栈实现队列
+class CQueue
+{
+public:
+    stack<int> inStack, outStack;
+
+    CQueue() {}
+
+    void appendTail(int value)
+    {
+        inStack.push(value);
+    }
+
+    int deleteHead()
+    {
+        if (outStack.empty())
+        {
+            if (!inStack.empty())
+            {
+                while (!inStack.empty())
+                {
+                    outStack.push(inStack.top());
+                    inStack.pop();
+                }
+                int tempValue = outStack.top();
+                outStack.pop();
+                return tempValue;
+            }
+            else
+            {
+                return -1;
+            }
+        }
+        int tempValue = outStack.top();
+        outStack.pop();
+        return tempValue;
     }
 };
 
